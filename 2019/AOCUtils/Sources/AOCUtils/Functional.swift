@@ -61,6 +61,24 @@ public func curry<A, B, C>(_ f: @escaping (A, B) -> C) -> (A) -> (B) -> C {
     }
 }
 
+public func curry<A, B, C, D>(_ f: @escaping (A, B, C) -> D) -> (A) -> (B) -> (C) -> D {
+    return { a in
+        return { b in
+            return { c in
+                return f(a, b, c)
+            }
+        }
+    }
+}
+
+public func flip<A, B, C>(_ f: @escaping (A) -> (B) -> C) -> (B) -> (A) -> C {
+    return { b in
+        return { a in
+            return f(a)(b)
+        }
+    }
+}
+
 public func iterate<A>(_ f: (A) -> A, _ seed: A, _ n: Int) -> [A] {
     var result = seed
     var resultList: [A] = []
