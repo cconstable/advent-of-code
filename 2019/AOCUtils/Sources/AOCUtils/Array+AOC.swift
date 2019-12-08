@@ -34,3 +34,23 @@ public func zipUntil<A, B>(_ pred: (A, B) -> Bool, _ a: [A], _ b: [B]) -> [(A, B
         }
     }
 }
+
+public func chunks<A>(_ list: [A], _ n: Int) -> [[A]] {
+    var count = 0
+    var chunk = [A]()
+    var chunks = [[A]]()
+    list.forEach {
+        chunk.append($0)
+        count += 1
+        if (count % n == 0) {
+            chunks.append(chunk)
+            chunk = [A]()
+        }
+    }
+    
+    if chunk.count != 0 {
+        chunks.append(chunk)
+    }
+    
+    return chunks
+}
