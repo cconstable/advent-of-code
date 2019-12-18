@@ -9,7 +9,7 @@
 - [swift-sh](https://github.com/mxcl/swift-sh) for running scripts
 
 ```bash
-cat 01-input.txt | swift sh 01.swift
+cat 01-input.txt | ./01.swift
 ```
 
 #### Haskell

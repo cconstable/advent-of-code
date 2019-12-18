@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  Array+AOC.swift
 //  
 //
 //  Created by Chris Constable on 12/5/19.
@@ -12,7 +12,7 @@ public func padLeft<A>(_ a: A, _ n: Int, _ list: [A]) -> [A] {
 }
 
 public func padRight<A>(_ a: A, _ n: Int, _ list: [A]) -> [A] {
-    return Array(repeating: a, count: n) + list
+    return list + Array(repeating: a, count: n)
 }
 
 public func head<A>(_ list: [A]) -> A {

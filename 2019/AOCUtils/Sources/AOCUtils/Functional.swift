@@ -89,6 +89,12 @@ public func iterate<A>(_ f: (A) -> A, _ seed: A, _ n: Int) -> [A] {
     return resultList
 }
 
+public func map<A, B>(_ f: @escaping (A) -> B) -> ([A]) -> [B] {
+    return { input in
+        input.map(f)
+    }
+}
+
 extension Array {
     /// Reduce with no initial element. Uses elements of the Array. Returns nil or the first element
     /// if there are zero or one elements respectively.

@@ -36,9 +36,15 @@ extension String {
 }
 
 public func trim(_ string: String) -> String {
-    return string.trimmingCharacters(in: .whitespacesAndNewlines)
+    string.trimmingCharacters(in: .whitespacesAndNewlines)
 }
 
 public func lines(_ string: String) -> [String] {
-    return string.components(separatedBy: "\n")
+    string.components(separatedBy: "\n")
+}
+
+public func split(_ delim: String) -> (String) -> [String] {
+    return { input in
+        input.components(separatedBy: delim)
+    }
 }
